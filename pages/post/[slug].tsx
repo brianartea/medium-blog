@@ -15,6 +15,7 @@ interface IFormInput {
 
 interface Props {
   post: [Post];
+  // mainImage: [Post];
 }
 
 function Post({ post }: Props) {
@@ -70,7 +71,9 @@ function Post({ post }: Props) {
         <div className="mt-10">
           <PortableText
             className=""
+            // @ts-ignore
             dataset={process.env.NEXT_PUBLIC_SANITY_DATASET!}
+            // @ts-ignore
             projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!}
             content={post.body}
             serializers={{
@@ -95,7 +98,7 @@ function Post({ post }: Props) {
 
       <hr className="max-w-[400px] md:max-w-lg lg:max-w-xl my-5 mx-auto border border-yellow-500 hover:underline" />
       {submitted ? (
-        <div className="flex flex-col text-center py-10 my-10 bg-yellow-500 text-white max-w-2xl mx-auto">
+        <div className="flex flex-col text-center py-10 my-10 bg-green-600 text-white max-w-2xl mx-auto">
           <h3 className="text-3xl font-bold mb-4">
             Thank you for submitting your comment!
           </h3>
