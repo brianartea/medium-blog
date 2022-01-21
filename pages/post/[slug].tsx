@@ -15,10 +15,10 @@ interface IFormInput {
 
 interface Props {
   post: [Post];
-  // mainImage: [Post];
 }
 
 function Post({ post }: Props) {
+  // @ts-ignore
   const [submitted, setSubmitted] = useState(false);
 
   const {
@@ -48,24 +48,48 @@ function Post({ post }: Props) {
 
       <img
         className="w-full h-40 object-cover"
+        // @ts-ignore
         src={urlFor(post.mainImage).url()!}
         alt="main-image"
       />
       <article className="max-w-3xl mx-auto p-5">
-        <h1 className="text-3xl mt-10 mb-3">{post.title}</h1>
-        <h2 className="text-xl font-light text-gray-500 mb-2">
+        <h1
+          className="text-3xl mt-10 mb-3"
+          // @ts-ignore
+        >
+          {post.title}
+        </h1>
+        <h2
+          className="text-xl font-light text-gray-500 mb-2"
+          // @ts-ignore
+        >
           {post.description}
         </h2>
         <div className="flex items-center space-x-2">
           <img
             className="h-10 w-10 rounded-full"
+            // @ts-ignore
             src={urlFor(post.author.image).url()!}
             alt=""
           />
-          <p className="text-sm font-extralight">
-            Blog post by{" "}
-            <span className="text-green-600">{post.author.name}</span> -
-            Published at {new Date(post._createdAt).toLocaleString()}
+          <p
+            className="text-sm font-extralight"
+            // @ts-ignore
+          >
+            Blog post by
+            <span
+              className="text-green-600"
+              // @ts-ignore
+            >
+              {post.author.name}
+            </span>{" "}
+            - Published at
+            <span
+              className="text-green-600"
+              // @ts-ignore
+            >
+              {new Date(post._createdAt).toLocaleString()}
+            </span>
           </p>
         </div>
         <div className="mt-10">
@@ -73,8 +97,8 @@ function Post({ post }: Props) {
             className=""
             // @ts-ignore
             dataset={process.env.NEXT_PUBLIC_SANITY_DATASET!}
-            // @ts-ignore
             projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!}
+            // @ts-ignore
             content={post.body}
             serializers={{
               h1: (props: any) => (
@@ -113,7 +137,12 @@ function Post({ post }: Props) {
           <h4 className="text-3xl font-bold">Leave a comment below!</h4>
           <hr className="py-3 mt-2" />
 
-          <input {...register("_id")} type="hidden" value={post._id} />
+          <input
+            {...register("_id")}
+            type="hidden"
+            // @ts-ignore
+            value={post._id}
+          />
           <label className="block mb-5">
             <span className="text-gray-700">Name</span>
             <input
