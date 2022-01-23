@@ -14,7 +14,7 @@ interface IFormInput {
 }
 
 interface Props {
-  post: [Post];
+  post: Post;
 }
 
 function Post({ post }: Props) {
@@ -53,16 +53,8 @@ function Post({ post }: Props) {
         alt="main-image"
       />
       <article className="max-w-3xl mx-auto p-5">
-        <h1
-          className="text-3xl mt-10 mb-3"
-          // @ts-ignore
-        >
-          {post.title}
-        </h1>
-        <h2
-          className="text-xl font-light text-gray-500 mb-2"
-          // @ts-ignore
-        >
+        <h1 className="text-3xl mt-10 mb-3">{post.title}</h1>
+        <h2 className="text-xl font-light text-gray-500 mb-2">
           {post.description}
         </h2>
         <div className="flex items-center space-x-2">
@@ -72,22 +64,11 @@ function Post({ post }: Props) {
             src={urlFor(post.author.image).url()!}
             alt=""
           />
-          <p
-            className="text-sm font-extralight"
-            // @ts-ignore
-          >
+          <p className="text-sm font-extralight">
             Blog post by
-            <span
-              className="text-green-600"
-              // @ts-ignore
-            >
-              {post.author.name}
-            </span>{" "}
-            - Published at
-            <span
-              className="text-green-600"
-              // @ts-ignore
-            >
+            <span className="text-green-600">{post.author.name}</span> -
+            Published at
+            <span className="text-green-600">
               {new Date(post._createdAt).toLocaleString()}
             </span>
           </p>
