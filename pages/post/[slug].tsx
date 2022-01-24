@@ -49,6 +49,7 @@ function Post({ post }: Props) {
       <img
         className="w-full h-40 object-cover"
         // @ts-ignore
+        // src="/top-post-page.png"
         src={urlFor(post.mainImage).url()!}
         alt="main-image"
       />
@@ -65,9 +66,9 @@ function Post({ post }: Props) {
             alt=""
           />
           <p className="text-sm font-extralight">
-            Blog post by
+            Blog post by{" "}
             <span className="text-green-600">{post.author.name}</span> -
-            Published at
+            Published at{" "}
             <span className="text-green-600">
               {new Date(post._createdAt).toLocaleString()}
             </span>
