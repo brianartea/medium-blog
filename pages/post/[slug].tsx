@@ -54,8 +54,8 @@ function Post({ post }: Props) {
         alt="main-image"
       />
       <article className="max-w-3xl mx-auto p-5">
-        <h1 className="text-3xl mt-10 mb-3">{post.title}</h1>
-        <h2 className="text-xl font-light text-gray-500 mb-2">
+        <h1 className="text-3xl mt-10 mb-3 font-bold">{post.title}</h1>
+        <h2 className="text-xl font-bold text-gray-600 mb-2">
           {post.description}
         </h2>
         <div className="flex items-center space-x-2">
@@ -65,7 +65,7 @@ function Post({ post }: Props) {
             src={urlFor(post.author.image).url()!}
             alt=""
           />
-          <p className="text-sm font-extralight">
+          <p className="text-sm">
             Blog post by{" "}
             <span className="text-green-600">{post.author.name}</span> -
             Published at{" "}
